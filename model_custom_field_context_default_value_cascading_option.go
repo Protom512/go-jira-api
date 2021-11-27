@@ -9,7 +9,7 @@
  */
 package swagger
 
-// Default value for a cascading select custom field.
+// The default value for a cascading select custom field.
 type CustomFieldContextDefaultValueCascadingOption struct {
 	// The ID of the context.
 	ContextId string `json:"contextId"`

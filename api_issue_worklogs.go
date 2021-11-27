@@ -38,7 +38,7 @@ Adds a worklog to an issue.  Time tracking must be enabled in Jira, otherwise th
      * @param "NewEstimate" (optional.String) -  The value to set as the issue&#x27;s remaining time estimate, as days (\\#d), hours (\\#h), or minutes (\\#m or \\#). For example, *2d*. Required when &#x60;adjustEstimate&#x60; is &#x60;new&#x60;.
      * @param "ReduceBy" (optional.String) -  The amount to reduce the issue&#x27;s remaining estimate by, as days (\\#d), hours (\\#h), or minutes (\\#m). For example, *2d*. Required when &#x60;adjustEstimate&#x60; is &#x60;manual&#x60;.
      * @param "Expand" (optional.String) -  Use [expand](#expansion) to include additional information about work logs in the response. This parameter accepts &#x60;properties&#x60;, which returns worklog properties.
-     * @param "OverrideEditableFlag" (optional.Bool) -  Whether the worklog entry should be added to the issue even if the issue is not editable, because jira.issue.editable set to false or missing. For example, the issue is closed. Only connect app users with admin scope permission can use this flag.
+     * @param "OverrideEditableFlag" (optional.Bool) -  Whether the worklog entry should be added to the issue even if the issue is not editable, because jira.issue.editable set to false or missing. For example, the issue is closed. Connect app users with admin permission and Forge app users with the &#x60;manage:jira-configuration&#x60; scope can use this flag.
 @return ModelMap
 */
 
@@ -160,7 +160,7 @@ Deletes a worklog from an issue.  Time tracking must be enabled in Jira, otherwi
      * @param "AdjustEstimate" (optional.String) -  Defines how to update the issue&#x27;s time estimate, the options are:   *  &#x60;new&#x60; Sets the estimate to a specific value, defined in &#x60;newEstimate&#x60;.  *  &#x60;leave&#x60; Leaves the estimate unchanged.  *  &#x60;manual&#x60; Increases the estimate by amount specified in &#x60;increaseBy&#x60;.  *  &#x60;auto&#x60; Reduces the estimate by the value of &#x60;timeSpent&#x60; in the worklog.
      * @param "NewEstimate" (optional.String) -  The value to set as the issue&#x27;s remaining time estimate, as days (\\#d), hours (\\#h), or minutes (\\#m or \\#). For example, *2d*. Required when &#x60;adjustEstimate&#x60; is &#x60;new&#x60;.
      * @param "IncreaseBy" (optional.String) -  The amount to increase the issue&#x27;s remaining estimate by, as days (\\#d), hours (\\#h), or minutes (\\#m or \\#). For example, *2d*. Required when &#x60;adjustEstimate&#x60; is &#x60;manual&#x60;.
-     * @param "OverrideEditableFlag" (optional.Bool) -  Whether the work log entry should be added to the issue even if the issue is not editable, because jira.issue.editable set to false or missing. For example, the issue is closed. Only connect app users with admin permissions can use this flag.
+     * @param "OverrideEditableFlag" (optional.Bool) -  Whether the work log entry should be added to the issue even if the issue is not editable, because jira.issue.editable set to false or missing. For example, the issue is closed. Connect app users with admin permission and Forge app users with the &#x60;manage:jira-configuration&#x60; scope can use this flag.
 
 */
 
@@ -449,6 +449,7 @@ Returns worklogs for an issue, starting from the oldest worklog or from the work
      * @param "StartAt" (optional.Int64) -  The index of the first item to return in a page of results (page offset).
      * @param "MaxResults" (optional.Int32) -  The maximum number of items to return per page.
      * @param "StartedAfter" (optional.Int64) -  The worklog start date and time, as a UNIX timestamp in milliseconds, after which worklogs are returned.
+     * @param "StartedBefore" (optional.Int64) -  The worklog start date and time, as a UNIX timestamp in milliseconds, before which worklogs are returned.
      * @param "Expand" (optional.String) -  Use [expand](#expansion) to include additional information about worklogs in the response. This parameter accepts&#x60;properties&#x60;, which returns worklog properties.
 @return ModelMap
 */
@@ -457,6 +458,7 @@ type IssueWorklogsApiGetIssueWorklogOpts struct {
     StartAt optional.Int64
     MaxResults optional.Int32
     StartedAfter optional.Int64
+    StartedBefore optional.Int64
     Expand optional.String
 }
 
@@ -485,6 +487,9 @@ func (a *IssueWorklogsApiService) GetIssueWorklog(ctx context.Context, issueIdOr
 	}
 	if localVarOptionals != nil && localVarOptionals.StartedAfter.IsSet() {
 		localVarQueryParams.Add("startedAfter", parameterToString(localVarOptionals.StartedAfter.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.StartedBefore.IsSet() {
+		localVarQueryParams.Add("startedBefore", parameterToString(localVarOptionals.StartedBefore.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.Expand.IsSet() {
 		localVarQueryParams.Add("expand", parameterToString(localVarOptionals.Expand.Value(), ""))
@@ -755,7 +760,7 @@ Updates a worklog.  Time tracking must be enabled in Jira, otherwise this operat
      * @param "AdjustEstimate" (optional.String) -  Defines how to update the issue&#x27;s time estimate, the options are:   *  &#x60;new&#x60; Sets the estimate to a specific value, defined in &#x60;newEstimate&#x60;.  *  &#x60;leave&#x60; Leaves the estimate unchanged.  *  &#x60;auto&#x60; Updates the estimate by the difference between the original and updated value of &#x60;timeSpent&#x60; or &#x60;timeSpentSeconds&#x60;.
      * @param "NewEstimate" (optional.String) -  The value to set as the issue&#x27;s remaining time estimate, as days (\\#d), hours (\\#h), or minutes (\\#m or \\#). For example, *2d*. Required when &#x60;adjustEstimate&#x60; is &#x60;new&#x60;.
      * @param "Expand" (optional.String) -  Use [expand](#expansion) to include additional information about worklogs in the response. This parameter accepts &#x60;properties&#x60;, which returns worklog properties.
-     * @param "OverrideEditableFlag" (optional.Bool) -  Whether the worklog should be added to the issue even if the issue is not editable. For example, because the issue is closed. Only connect app users with admin permissions can use this flag.
+     * @param "OverrideEditableFlag" (optional.Bool) -  Whether the worklog should be added to the issue even if the issue is not editable. For example, because the issue is closed. Connect app users with admin permission and Forge app users with the &#x60;manage:jira-configuration&#x60; scope can use this flag.
 @return ModelMap
 */
 

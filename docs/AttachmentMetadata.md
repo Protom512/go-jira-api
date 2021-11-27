@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Properties** | [**map[string]Object**](.md) | Additional properties of the attachment. | [optional] [default to null]
 **Content** | **string** | The URL of the attachment. | [optional] [default to null]
 **Thumbnail** | **string** | The URL of a thumbnail representing the attachment. | [optional] [default to null]
+**MediaApiFileId** | **string** | The file ID of the attachment in the media store. See the [Media API](https://developer.atlassian.com/platform/media/) documentation for more details. | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

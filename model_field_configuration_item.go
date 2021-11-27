@@ -19,4 +19,6 @@ type FieldConfigurationItem struct {
 	IsHidden bool `json:"isHidden,omitempty"`
 	// Whether the field is required in the field configuration.
 	IsRequired bool `json:"isRequired,omitempty"`
+	// The renderer type for the field within the field configuration.
+	Renderer string `json:"renderer,omitempty"`
 }

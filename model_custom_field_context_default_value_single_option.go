@@ -9,7 +9,7 @@
  */
 package swagger
 
-// Default value for a single select custom field.
+// The default value for a single select custom field.
 type CustomFieldContextDefaultValueSingleOption struct {
 	// The ID of the context.
 	ContextId string `json:"contextId"`

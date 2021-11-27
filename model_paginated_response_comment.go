@@ -11,7 +11,7 @@ package swagger
 
 type PaginatedResponseComment struct {
 	Total int64 `json:"total,omitempty"`
-	MaxResults int32 `json:"maxResults,omitempty"`
 	StartAt int64 `json:"startAt,omitempty"`
+	MaxResults int32 `json:"maxResults,omitempty"`
 	Results []ModelMap `json:"results,omitempty"`
 }

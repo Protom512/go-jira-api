@@ -11,6 +11,6 @@ package swagger
 
 type RichText struct {
 	Finalised bool `json:"finalised,omitempty"`
-	ValueSet bool `json:"valueSet,omitempty"`
 	EmptyAdf bool `json:"emptyAdf,omitempty"`
+	ValueSet bool `json:"valueSet,omitempty"`
 }

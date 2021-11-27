@@ -11,5 +11,6 @@ package swagger
 
 // A list of editable field details.
 type IssueUpdateMetadata struct {
+	// A list of editable field details.
 	Fields map[string]FieldMetadata `json:"fields,omitempty"`
 }

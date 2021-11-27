@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 > ReplaceIssueFieldOption(ctx, fieldKey, optionId, optional)
 Replace issue field option
 
-Deselects an issue-field select-list option from all issues where it is selected. A different option can be selected to replace the deselected option. The update can also be limited to a smaller set of issues by using a JQL query.  This is an [asynchronous operation](#async). The response object contains a link to the long-running task.  Note that this operation **only works for issue field select list options added by Connect apps**, it cannot be used with issue field select list options created in Jira or using operations from the [Issue custom field options](#api-group-Issue-custom-field-options) resource.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg). Jira permissions are not required for the app providing the field.
+Deselects an issue-field select-list option from all issues where it is selected. A different option can be selected to replace the deselected option. The update can also be limited to a smaller set of issues by using a JQL query.  Connect app users with admin permissions (from user permissions and app scopes) and Forge app users with the `manage:jira-configuration` scope can override the screen security configuration using `overrideScreenSecurity` and `overrideEditableFlag`.  This is an [asynchronous operation](#async). The response object contains a link to the long-running task.  Note that this operation **only works for issue field select list options added by Connect apps**, it cannot be used with issue field select list options created in Jira or using operations from the [Issue custom field options](#api-group-Issue-custom-field-options) resource.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg). Jira permissions are not required for the app providing the field.
 
 ### Required Parameters
 
@@ -236,6 +236,8 @@ Name | Type | Description  | Notes
 
  **replaceWith** | **optional.Int64**| The ID of the option that will replace the currently selected option. | 
  **jql** | **optional.String**| A JQL query that specifies the issues to be updated. For example, *project&#x3D;10000*. | 
+ **overrideScreenSecurity** | **optional.Bool**| Whether screen security is overridden to enable hidden fields to be edited. Available to Connect app users with admin permission and Forge app users with the &#x60;manage:jira-configuration&#x60; scope. | [default to false]
+ **overrideEditableFlag** | **optional.Bool**| Whether screen security is overridden to enable uneditable fields to be edited. Available to Connect app users with admin permission and Forge app users with the &#x60;manage:jira-configuration&#x60; scope. | [default to false]
 
 ### Return type
 

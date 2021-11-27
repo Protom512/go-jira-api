@@ -151,6 +151,8 @@ type APIClient struct {
 
 	ProjectEmailApi *ProjectEmailApiService
 
+	ProjectFeaturesApi *ProjectFeaturesApiService
+
 	ProjectKeyAndNameValidationApi *ProjectKeyAndNameValidationApiService
 
 	ProjectPermissionSchemesApi *ProjectPermissionSchemesApiService
@@ -275,6 +277,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ProjectCategoriesApi = (*ProjectCategoriesApiService)(&c.common)
 	c.ProjectComponentsApi = (*ProjectComponentsApiService)(&c.common)
 	c.ProjectEmailApi = (*ProjectEmailApiService)(&c.common)
+	c.ProjectFeaturesApi = (*ProjectFeaturesApiService)(&c.common)
 	c.ProjectKeyAndNameValidationApi = (*ProjectKeyAndNameValidationApiService)(&c.common)
 	c.ProjectPermissionSchemesApi = (*ProjectPermissionSchemesApiService)(&c.common)
 	c.ProjectPropertiesApi = (*ProjectPropertiesApiService)(&c.common)

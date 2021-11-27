@@ -600,19 +600,23 @@ func (a *IssueCustomFieldOptionsAppsApiService) GetVisibleIssueFieldOptions(ctx 
 }
 /*
 IssueCustomFieldOptionsAppsApiService Replace issue field option
-Deselects an issue-field select-list option from all issues where it is selected. A different option can be selected to replace the deselected option. The update can also be limited to a smaller set of issues by using a JQL query.  This is an [asynchronous operation](#async). The response object contains a link to the long-running task.  Note that this operation **only works for issue field select list options added by Connect apps**, it cannot be used with issue field select list options created in Jira or using operations from the [Issue custom field options](#api-group-Issue-custom-field-options) resource.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg). Jira permissions are not required for the app providing the field.
+Deselects an issue-field select-list option from all issues where it is selected. A different option can be selected to replace the deselected option. The update can also be limited to a smaller set of issues by using a JQL query.  Connect app users with admin permissions (from user permissions and app scopes) and Forge app users with the &#x60;manage:jira-configuration&#x60; scope can override the screen security configuration using &#x60;overrideScreenSecurity&#x60; and &#x60;overrideEditableFlag&#x60;.  This is an [asynchronous operation](#async). The response object contains a link to the long-running task.  Note that this operation **only works for issue field select list options added by Connect apps**, it cannot be used with issue field select list options created in Jira or using operations from the [Issue custom field options](#api-group-Issue-custom-field-options) resource.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg). Jira permissions are not required for the app providing the field.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param fieldKey The field key is specified in the following format: **$(app-key)\\_\\_$(field-key)**. For example, *example-add-on\\_\\_example-issue-field*. To determine the &#x60;fieldKey&#x60; value, do one of the following:   *  open the app&#x27;s plugin descriptor, then **app-key** is the key at the top and **field-key** is the key in the &#x60;jiraIssueFields&#x60; module. **app-key** can also be found in the app listing in the Atlassian Universal Plugin Manager.  *  run [Get fields](#api-rest-api-3-field-get) and in the field details the value is returned in &#x60;key&#x60;. For example, &#x60;\&quot;key\&quot;: \&quot;teams-add-on__team-issue-field\&quot;&#x60;
  * @param optionId The ID of the option to be deselected.
  * @param optional nil or *IssueCustomFieldOptionsAppsApiReplaceIssueFieldOptionOpts - Optional Parameters:
      * @param "ReplaceWith" (optional.Int64) -  The ID of the option that will replace the currently selected option.
      * @param "Jql" (optional.String) -  A JQL query that specifies the issues to be updated. For example, *project&#x3D;10000*.
+     * @param "OverrideScreenSecurity" (optional.Bool) -  Whether screen security is overridden to enable hidden fields to be edited. Available to Connect app users with admin permission and Forge app users with the &#x60;manage:jira-configuration&#x60; scope.
+     * @param "OverrideEditableFlag" (optional.Bool) -  Whether screen security is overridden to enable uneditable fields to be edited. Available to Connect app users with admin permission and Forge app users with the &#x60;manage:jira-configuration&#x60; scope.
 
 */
 
 type IssueCustomFieldOptionsAppsApiReplaceIssueFieldOptionOpts struct {
     ReplaceWith optional.Int64
     Jql optional.String
+    OverrideScreenSecurity optional.Bool
+    OverrideEditableFlag optional.Bool
 }
 
 func (a *IssueCustomFieldOptionsAppsApiService) ReplaceIssueFieldOption(ctx context.Context, fieldKey string, optionId int64, localVarOptionals *IssueCustomFieldOptionsAppsApiReplaceIssueFieldOptionOpts) (*http.Response, error) {
@@ -638,6 +642,12 @@ func (a *IssueCustomFieldOptionsAppsApiService) ReplaceIssueFieldOption(ctx cont
 	}
 	if localVarOptionals != nil && localVarOptionals.Jql.IsSet() {
 		localVarQueryParams.Add("jql", parameterToString(localVarOptionals.Jql.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.OverrideScreenSecurity.IsSet() {
+		localVarQueryParams.Add("overrideScreenSecurity", parameterToString(localVarOptionals.OverrideScreenSecurity.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.OverrideEditableFlag.IsSet() {
+		localVarQueryParams.Add("overrideEditableFlag", parameterToString(localVarOptionals.OverrideEditableFlag.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}

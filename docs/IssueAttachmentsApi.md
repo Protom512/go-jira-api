@@ -8,7 +8,9 @@ Method | HTTP request | Description
 [**ExpandAttachmentForHumans**](IssueAttachmentsApi.md#ExpandAttachmentForHumans) | **Get** /rest/api/3/attachment/{id}/expand/human | Get all metadata for an expanded attachment
 [**ExpandAttachmentForMachines**](IssueAttachmentsApi.md#ExpandAttachmentForMachines) | **Get** /rest/api/3/attachment/{id}/expand/raw | Get contents metadata for an expanded attachment
 [**GetAttachment**](IssueAttachmentsApi.md#GetAttachment) | **Get** /rest/api/3/attachment/{id} | Get attachment metadata
+[**GetAttachmentContent**](IssueAttachmentsApi.md#GetAttachmentContent) | **Get** /rest/api/3/attachment/content/{id} | Get attachment content
 [**GetAttachmentMeta**](IssueAttachmentsApi.md#GetAttachmentMeta) | **Get** /rest/api/3/attachment/meta | Get Jira attachment settings
+[**GetAttachmentThumbnail**](IssueAttachmentsApi.md#GetAttachmentThumbnail) | **Get** /rest/api/3/attachment/thumbnail/{id} | Get attachment thumbnail
 [**RemoveAttachment**](IssueAttachmentsApi.md#RemoveAttachment) | **Delete** /rest/api/3/attachment/{id} | Delete attachment
 
 # **AddAttachment**
@@ -123,6 +125,42 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetAttachmentContent**
+> interface{} GetAttachmentContent(ctx, id, optional)
+Get attachment content
+
+Returns the contents of an attachment. A `Range` header can be set to define a range of bytes within the attachment to download. See the [HTTP Range header standard](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range) for details.  To return a thumbnail of the attachment, use [Download attachment thumbnail](#api-rest-api-3-attachment-thumbnail-id-get).  This operation can be accessed anonymously.  **[Permissions](#permissions) required:** For the issue containing the attachment:   *  *Browse projects* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project that the issue is in.  *  If [issue-level security](https://confluence.atlassian.com/x/J4lKLg) is configured, issue-level security permission to view the issue.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **id** | **string**| The ID of the attachment. | 
+ **optional** | ***IssueAttachmentsApiGetAttachmentContentOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a IssueAttachmentsApiGetAttachmentContentOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **redirect** | **optional.Bool**| Whether a redirect is provided for the attachment download. Clients that do not automatically follow redirects can set this to &#x60;false&#x60; to avoid making multiple requests to download the attachment. | [default to true]
+
+### Return type
+
+[**interface{}**](interface{}.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetAttachmentMeta**
 > AttachmentSettings GetAttachmentMeta(ctx, )
 Get Jira attachment settings
@@ -135,6 +173,45 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**AttachmentSettings**](AttachmentSettings.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetAttachmentThumbnail**
+> interface{} GetAttachmentThumbnail(ctx, id, optional)
+Get attachment thumbnail
+
+Returns the thumbnail of an attachment.  To return the attachment contents, use [Download attachment content](#api-rest-api-3-attachment-content-id-get).  This operation can be accessed anonymously.  **[Permissions](#permissions) required:** For the issue containing the attachment:   *  *Browse projects* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project that the issue is in.  *  If [issue-level security](https://confluence.atlassian.com/x/J4lKLg) is configured, issue-level security permission to view the issue.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **id** | **string**| The ID of the attachment. | 
+ **optional** | ***IssueAttachmentsApiGetAttachmentThumbnailOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a IssueAttachmentsApiGetAttachmentThumbnailOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **redirect** | **optional.Bool**| Whether a redirect is provided for the attachment download. Clients that do not automatically follow redirects can set this to &#x60;false&#x60; to avoid making multiple requests to download the attachment. | [default to true]
+ **fallbackToDefault** | **optional.Bool**| Whether a default thumbnail is returned when the requested thumbnail is not found. | [default to true]
+ **width** | **optional.Int32**| The maximum width to scale the thumbnail to. | 
+ **height** | **optional.Int32**| The maximum height to scale the thumbnail to. | 
+
+### Return type
+
+[**interface{}**](interface{}.md)
 
 ### Authorization
 

@@ -6,6 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteAvatar**](AvatarsApi.md#DeleteAvatar) | **Delete** /rest/api/3/universal_avatar/type/{type}/owner/{owningObjectId}/avatar/{id} | Delete avatar
 [**GetAllSystemAvatars**](AvatarsApi.md#GetAllSystemAvatars) | **Get** /rest/api/3/avatar/{type}/system | Get system avatars by type
+[**GetAvatarImageByID**](AvatarsApi.md#GetAvatarImageByID) | **Get** /rest/api/3/universal_avatar/view/type/{type}/avatar/{id} | Get avatar image by ID
+[**GetAvatarImageByOwner**](AvatarsApi.md#GetAvatarImageByOwner) | **Get** /rest/api/3/universal_avatar/view/type/{type}/owner/{entityId} | Get avatar image by owner
+[**GetAvatarImageByType**](AvatarsApi.md#GetAvatarImageByType) | **Get** /rest/api/3/universal_avatar/view/type/{type} | Get avatar image by type
 [**GetAvatars**](AvatarsApi.md#GetAvatars) | **Get** /rest/api/3/universal_avatar/type/{type}/owner/{entityId} | Get avatars
 [**StoreAvatar**](AvatarsApi.md#StoreAvatar) | **Post** /rest/api/3/universal_avatar/type/{type}/owner/{entityId} | Load avatar
 
@@ -64,6 +67,121 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetAvatarImageByID**
+> interface{} GetAvatarImageByID(ctx, type_, id, optional)
+Get avatar image by ID
+
+Returns a project or issue type avatar image by ID.  This operation can be accessed anonymously.  **[Permissions](#permissions) required:**   *  For system avatars, none.  *  For custom project avatars, *Browse projects* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project the avatar belongs to.  *  For custom issue type avatars, *Browse projects* [project permission](https://confluence.atlassian.com/x/yodKLg) for at least one project the issue type is used in.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **type_** | **string**| The icon type of the avatar. | 
+  **id** | **int64**| The ID of the avatar. | 
+ **optional** | ***AvatarsApiGetAvatarImageByIDOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a AvatarsApiGetAvatarImageByIDOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **size** | **optional.String**| The size of the avatar image. If not provided the default size is returned. | 
+ **format** | **optional.String**| The format to return the avatar image in. If not provided the original content format is returned. | 
+
+### Return type
+
+[**interface{}**](interface{}.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, image/png, image/svg+xml, */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetAvatarImageByOwner**
+> interface{} GetAvatarImageByOwner(ctx, type_, entityId, optional)
+Get avatar image by owner
+
+Returns the avatar image for a project or issue type.  This operation can be accessed anonymously.  **[Permissions](#permissions) required:**   *  For system avatars, none.  *  For custom project avatars, *Browse projects* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project the avatar belongs to.  *  For custom issue type avatars, *Browse projects* [project permission](https://confluence.atlassian.com/x/yodKLg) for at least one project the issue type is used in.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **type_** | **string**| The icon type of the avatar. | 
+  **entityId** | **string**| The ID of the project or issue type the avatar belongs to. | 
+ **optional** | ***AvatarsApiGetAvatarImageByOwnerOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a AvatarsApiGetAvatarImageByOwnerOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **size** | **optional.String**| The size of the avatar image. If not provided the default size is returned. | 
+ **format** | **optional.String**| The format to return the avatar image in. If not provided the original content format is returned. | 
+
+### Return type
+
+[**interface{}**](interface{}.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, image/png, image/svg+xml, */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetAvatarImageByType**
+> interface{} GetAvatarImageByType(ctx, type_, optional)
+Get avatar image by type
+
+Returns the default project or issue type avatar image.  This operation can be accessed anonymously.  **[Permissions](#permissions) required:** None.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **type_** | **string**| The icon type of the avatar. | 
+ **optional** | ***AvatarsApiGetAvatarImageByTypeOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a AvatarsApiGetAvatarImageByTypeOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **size** | **optional.String**| The size of the avatar image. If not provided the default size is returned. | 
+ **format** | **optional.String**| The format to return the avatar image in. If not provided the original content format is returned. | 
+
+### Return type
+
+[**interface{}**](interface{}.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, image/png, image/svg+xml, */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Type_** | **string** | The type of the transition. | [default to null]
 **Rules** | [***AllOfCreateWorkflowTransitionDetailsRules**](AllOfCreateWorkflowTransitionDetailsRules.md) | The rules of the transition. | [optional] [default to null]
 **Screen** | [***AllOfCreateWorkflowTransitionDetailsScreen**](AllOfCreateWorkflowTransitionDetailsScreen.md) | The screen of the transition. | [optional] [default to null]
+**Properties** | **map[string]string** | The properties of the transition. | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

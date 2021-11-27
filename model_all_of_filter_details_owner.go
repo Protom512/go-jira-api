@@ -9,7 +9,7 @@
  */
 package swagger
 
-// The user who owns the filter. This is defaulted to the creator of the filter, however Jira administrators can change the owner of a shared filter in the admin settings.
+// The user who owns the filter. Defaults to the creator of the filter, however, Jira administrators can change the owner of a shared filter in the admin settings.
 type AllOfFilterDetailsOwner struct {
 	// The URL of the user.
 	Self string `json:"self,omitempty"`

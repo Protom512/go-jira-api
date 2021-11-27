@@ -13,4 +13,19 @@ type OneOfCustomFieldContextDefaultValue struct {
     CustomFieldContextDefaultValueCascadingOption
     CustomFieldContextDefaultValueMultipleOption
     CustomFieldContextDefaultValueSingleOption
+    CustomFieldContextSingleUserPickerDefaults
+    CustomFieldContextDefaultValueMultiUserPicker
+    CustomFieldContextDefaultValueSingleGroupPicker
+    CustomFieldContextDefaultValueMultipleGroupPicker
+    CustomFieldContextDefaultValueDate
+    CustomFieldContextDefaultValueDateTime
+    CustomFieldContextDefaultValueUrl
+    CustomFieldContextDefaultValueProject
+    CustomFieldContextDefaultValueFloat
+    CustomFieldContextDefaultValueLabels
+    CustomFieldContextDefaultValueTextField
+    CustomFieldContextDefaultValueTextArea
+    CustomFieldContextDefaultValueReadOnly
+    CustomFieldContextDefaultValueSingleVersionPicker
+    CustomFieldContextDefaultValueMultipleVersionPicker
 }

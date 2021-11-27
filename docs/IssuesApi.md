@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 > Object EditIssue(ctx, body, issueIdOrKey, optional)
 Edit issue
 
-Edits an issue. A transition may be applied and issue properties updated as part of the edit.  The edits to the issue's fields are defined using `update` and `fields`. The fields that can be edited are determined using [ Get edit issue metadata](#api-rest-api-3-issue-issueIdOrKey-editmeta-get).  The parent field may be set by key or ID. For standard issue types, the parent may be removed by setting `update.parent.set.none` to *true*. Note that the `description`, `environment`, and any `textarea` type custom fields (multi-line text fields) take Atlassian Document Format content. Single line custom fields (`textfield`) accept a string and don't handle Atlassian Document Format content.  Connect app users with admin permissions (from user permissions and app scopes) can override the screen security configuration using `overrideScreenSecurity` and `overrideEditableFlag`.  This operation can be accessed anonymously.  **[Permissions](#permissions) required:**   *  *Browse projects* and *Edit issues* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project that the issue is in.  *  If [issue-level security](https://confluence.atlassian.com/x/J4lKLg) is configured, issue-level security permission to view the issue.
+Edits an issue. A transition may be applied and issue properties updated as part of the edit.  The edits to the issue's fields are defined using `update` and `fields`. The fields that can be edited are determined using [ Get edit issue metadata](#api-rest-api-3-issue-issueIdOrKey-editmeta-get).  The parent field may be set by key or ID. For standard issue types, the parent may be removed by setting `update.parent.set.none` to *true*. Note that the `description`, `environment`, and any `textarea` type custom fields (multi-line text fields) take Atlassian Document Format content. Single line custom fields (`textfield`) accept a string and don't handle Atlassian Document Format content.  Connect app users with admin permission (from user permissions and app scopes) and Forge app users with the `manage:jira-configuration` scope can override the screen security configuration using `overrideScreenSecurity` and `overrideEditableFlag`.  This operation can be accessed anonymously.  **[Permissions](#permissions) required:**   *  *Browse projects* and *Edit issues* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project that the issue is in.  *  If [issue-level security](https://confluence.atlassian.com/x/J4lKLg) is configured, issue-level security permission to view the issue.
 
 ### Required Parameters
 
@@ -199,8 +199,8 @@ Name | Type | Description  | Notes
 
 
  **notifyUsers** | **optional.**| Whether a notification email about the issue update is sent to all watchers. To disable the notification, administer Jira or administer project permissions are required. If the user doesn&#x27;t have the necessary permission the request is ignored. | [default to true]
- **overrideScreenSecurity** | **optional.**| Whether screen security should be overridden to enable hidden fields to be edited. Available to Connect app users with admin permissions and Forge apps with &#x60;manage:jira-configuration&#x60; permission. | [default to false]
- **overrideEditableFlag** | **optional.**| Whether screen security should be overridden to enable uneditable fields to be edited. Available to Connect app users with admin permissions. | [default to false]
+ **overrideScreenSecurity** | **optional.**| Whether screen security is overridden to enable hidden fields to be edited. Available to Connect app users with admin permission and Forge app users with the &#x60;manage:jira-configuration&#x60; scope. | [default to false]
+ **overrideEditableFlag** | **optional.**| Whether screen security is overridden to enable uneditable fields to be edited. Available to Connect app users with admin permission and Forge app users with the &#x60;manage:jira-configuration&#x60; scope. | [default to false]
 
 ### Return type
 
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 > IssueUpdateMetadata GetEditIssueMeta(ctx, issueIdOrKey, optional)
 Get edit issue metadata
 
-Returns the edit screen fields for an issue that are visible to and editable by the user. Use the information to populate the requests in [Edit issue](#api-rest-api-3-issue-issueIdOrKey-put).  Connect app users with admin permissions (from user permissions and app scopes) can return additional details using:   *  `overrideScreenSecurity` Returns hidden fields.  *  `overrideEditableFlag` Returns uneditable fields. For example, where an issue has a workflow status of closed none of its fields are editable.  This operation can be accessed anonymously.  **[Permissions](#permissions) required:**   *  *Browse projects* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project that the issue is in.  *  If [issue-level security](https://confluence.atlassian.com/x/J4lKLg) is configured, issue-level security permission to view the issue.  Note: For any fields to be editable the user must have the *Edit issues* [project permission](https://confluence.atlassian.com/x/yodKLg) for the issue.
+Returns the edit screen fields for an issue that are visible to and editable by the user. Use the information to populate the requests in [Edit issue](#api-rest-api-3-issue-issueIdOrKey-put).  Connect app users with admin permission (from user permissions and app scopes) and Forge app users with the `manage:jira-configuration` scope can return additional details using:   *  `overrideScreenSecurity` Returns hidden fields.  *  `overrideEditableFlag` Returns uneditable fields. For example, where an issue has a workflow status of closed none of its fields are editable.  This operation can be accessed anonymously.  **[Permissions](#permissions) required:**   *  *Browse projects* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project that the issue is in.  *  If [issue-level security](https://confluence.atlassian.com/x/J4lKLg) is configured, issue-level security permission to view the issue.  Note: For any fields to be editable the user must have the *Edit issues* [project permission](https://confluence.atlassian.com/x/yodKLg) for the issue.
 
 ### Required Parameters
 
@@ -340,8 +340,8 @@ Optional parameters are passed through a pointer to a IssuesApiGetEditIssueMetaO
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **overrideScreenSecurity** | **optional.Bool**| Whether hidden fields should be returned. Available to connect app users with admin permissions. | [default to false]
- **overrideEditableFlag** | **optional.Bool**| Whether non-editable fields should be returned. Available to connect app users with admin permissions. | [default to false]
+ **overrideScreenSecurity** | **optional.Bool**| Whether hidden fields are returned. Available to Connect app users with admin permission and Forge app users with the &#x60;manage:jira-configuration&#x60; scope. | [default to false]
+ **overrideEditableFlag** | **optional.Bool**| Whether non-editable fields are returned. Available to Connect app users with admin permission and Forge app users with the &#x60;manage:jira-configuration&#x60; scope. | [default to false]
 
 ### Return type
 

@@ -12,10 +12,6 @@ package swagger
 type JsonNode struct {
 	Elements *interface{} `json:"elements,omitempty"`
 	Pojo bool `json:"pojo,omitempty"`
-	ContainerNode bool `json:"containerNode,omitempty"`
-	MissingNode bool `json:"missingNode,omitempty"`
-	Object bool `json:"object,omitempty"`
-	ValueNode bool `json:"valueNode,omitempty"`
 	Number bool `json:"number,omitempty"`
 	IntegralNumber bool `json:"integralNumber,omitempty"`
 	FloatingPointNumber bool `json:"floatingPointNumber,omitempty"`
@@ -27,6 +23,10 @@ type JsonNode struct {
 	Textual bool `json:"textual,omitempty"`
 	Boolean bool `json:"boolean,omitempty"`
 	Binary bool `json:"binary,omitempty"`
+	ContainerNode bool `json:"containerNode,omitempty"`
+	MissingNode bool `json:"missingNode,omitempty"`
+	Object bool `json:"object,omitempty"`
+	ValueNode bool `json:"valueNode,omitempty"`
 	NumberValue float64 `json:"numberValue,omitempty"`
 	NumberType string `json:"numberType,omitempty"`
 	IntValue int32 `json:"intValue,omitempty"`

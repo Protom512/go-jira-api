@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Favourite** | **bool** | Whether the filter is selected as a favorite. | [optional] [default to null]
 **FavouritedCount** | **int64** | The count of how many users have selected this filter as a favorite, including the filter owner. | [optional] [default to null]
 **SharePermissions** | [**[]SharePermission**](SharePermission.md) | The groups and projects that the filter is shared with. | [optional] [default to null]
+**EditPermissions** | [**[]SharePermission**](SharePermission.md) | The groups and projects that can edit the filter. | [optional] [default to null]
 **SharedUsers** | [***AllOfFilterSharedUsers**](AllOfFilterSharedUsers.md) | A paginated list of the users that the filter is shared with. This includes users that are members of the groups or can browse the projects that the filter is shared with. | [optional] [default to null]
 **Subscriptions** | [***AllOfFilterSubscriptions**](AllOfFilterSubscriptions.md) | A paginated list of the users that are subscribed to the filter. | [optional] [default to null]
 

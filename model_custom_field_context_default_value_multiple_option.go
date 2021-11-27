@@ -9,7 +9,7 @@
  */
 package swagger
 
-// Default value for a multi-select custom field.
+// The default value for a multi-select custom field.
 type CustomFieldContextDefaultValueMultipleOption struct {
 	// The ID of the context.
 	ContextId string `json:"contextId"`

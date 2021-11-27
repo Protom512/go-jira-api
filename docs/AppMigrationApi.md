@@ -42,7 +42,7 @@ No authorization required
 > MigrationResourceUpdateEntityPropertiesValuePut(ctx, body, atlassianTransferId, atlassianAccountId, entityType)
 Bulk update entity properties
 
-Updates the values of multiple entity properties for an object. This operation is for use by Connect apps during app migration.
+Updates the values of multiple entity properties for an object, up to 50 updates per request. This operation is for use by Connect apps during app migration.
 
 ### Required Parameters
 

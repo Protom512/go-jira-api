@@ -39,7 +39,7 @@ Name | Type | Description  | Notes
  **newEstimate** | **optional.**| The value to set as the issue&#x27;s remaining time estimate, as days (\\#d), hours (\\#h), or minutes (\\#m or \\#). For example, *2d*. Required when &#x60;adjustEstimate&#x60; is &#x60;new&#x60;. | 
  **reduceBy** | **optional.**| The amount to reduce the issue&#x27;s remaining estimate by, as days (\\#d), hours (\\#h), or minutes (\\#m). For example, *2d*. Required when &#x60;adjustEstimate&#x60; is &#x60;manual&#x60;. | 
  **expand** | **optional.**| Use [expand](#expansion) to include additional information about work logs in the response. This parameter accepts &#x60;properties&#x60;, which returns worklog properties. | 
- **overrideEditableFlag** | **optional.**| Whether the worklog entry should be added to the issue even if the issue is not editable, because jira.issue.editable set to false or missing. For example, the issue is closed. Only connect app users with admin scope permission can use this flag. | [default to false]
+ **overrideEditableFlag** | **optional.**| Whether the worklog entry should be added to the issue even if the issue is not editable, because jira.issue.editable set to false or missing. For example, the issue is closed. Connect app users with admin permission and Forge app users with the &#x60;manage:jira-configuration&#x60; scope can use this flag. | [default to false]
 
 ### Return type
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
  **adjustEstimate** | **optional.String**| Defines how to update the issue&#x27;s time estimate, the options are:   *  &#x60;new&#x60; Sets the estimate to a specific value, defined in &#x60;newEstimate&#x60;.  *  &#x60;leave&#x60; Leaves the estimate unchanged.  *  &#x60;manual&#x60; Increases the estimate by amount specified in &#x60;increaseBy&#x60;.  *  &#x60;auto&#x60; Reduces the estimate by the value of &#x60;timeSpent&#x60; in the worklog. | [default to auto]
  **newEstimate** | **optional.String**| The value to set as the issue&#x27;s remaining time estimate, as days (\\#d), hours (\\#h), or minutes (\\#m or \\#). For example, *2d*. Required when &#x60;adjustEstimate&#x60; is &#x60;new&#x60;. | 
  **increaseBy** | **optional.String**| The amount to increase the issue&#x27;s remaining estimate by, as days (\\#d), hours (\\#h), or minutes (\\#m or \\#). For example, *2d*. Required when &#x60;adjustEstimate&#x60; is &#x60;manual&#x60;. | 
- **overrideEditableFlag** | **optional.Bool**| Whether the work log entry should be added to the issue even if the issue is not editable, because jira.issue.editable set to false or missing. For example, the issue is closed. Only connect app users with admin permissions can use this flag. | [default to false]
+ **overrideEditableFlag** | **optional.Bool**| Whether the work log entry should be added to the issue even if the issue is not editable, because jira.issue.editable set to false or missing. For example, the issue is closed. Connect app users with admin permission and Forge app users with the &#x60;manage:jira-configuration&#x60; scope can use this flag. | [default to false]
 
 ### Return type
 
@@ -189,6 +189,7 @@ Name | Type | Description  | Notes
  **startAt** | **optional.Int64**| The index of the first item to return in a page of results (page offset). | [default to 0]
  **maxResults** | **optional.Int32**| The maximum number of items to return per page. | [default to 1048576]
  **startedAfter** | **optional.Int64**| The worklog start date and time, as a UNIX timestamp in milliseconds, after which worklogs are returned. | 
+ **startedBefore** | **optional.Int64**| The worklog start date and time, as a UNIX timestamp in milliseconds, before which worklogs are returned. | 
  **expand** | **optional.String**| Use [expand](#expansion) to include additional information about worklogs in the response. This parameter accepts&#x60;properties&#x60;, which returns worklog properties. | 
 
 ### Return type
@@ -307,7 +308,7 @@ Name | Type | Description  | Notes
  **adjustEstimate** | **optional.**| Defines how to update the issue&#x27;s time estimate, the options are:   *  &#x60;new&#x60; Sets the estimate to a specific value, defined in &#x60;newEstimate&#x60;.  *  &#x60;leave&#x60; Leaves the estimate unchanged.  *  &#x60;auto&#x60; Updates the estimate by the difference between the original and updated value of &#x60;timeSpent&#x60; or &#x60;timeSpentSeconds&#x60;. | [default to auto]
  **newEstimate** | **optional.**| The value to set as the issue&#x27;s remaining time estimate, as days (\\#d), hours (\\#h), or minutes (\\#m or \\#). For example, *2d*. Required when &#x60;adjustEstimate&#x60; is &#x60;new&#x60;. | 
  **expand** | **optional.**| Use [expand](#expansion) to include additional information about worklogs in the response. This parameter accepts &#x60;properties&#x60;, which returns worklog properties. | 
- **overrideEditableFlag** | **optional.**| Whether the worklog should be added to the issue even if the issue is not editable. For example, because the issue is closed. Only connect app users with admin permissions can use this flag. | [default to false]
+ **overrideEditableFlag** | **optional.**| Whether the worklog should be added to the issue even if the issue is not editable. For example, because the issue is closed. Connect app users with admin permission and Forge app users with the &#x60;manage:jira-configuration&#x60; scope can use this flag. | [default to false]
 
 ### Return type
 

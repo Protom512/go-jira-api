@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Type_** | **string** | The type of the transition. | [default to null]
 **Screen** | [***TransitionScreenDetails**](TransitionScreenDetails.md) |  | [optional] [default to null]
 **Rules** | [***WorkflowRules**](WorkflowRules.md) |  | [optional] [default to null]
+**Properties** | [**map[string]Object**](.md) | The properties of the transition. | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

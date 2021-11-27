@@ -25,4 +25,6 @@ type Transition struct {
 	Type_ string `json:"type"`
 	Screen *TransitionScreenDetails `json:"screen,omitempty"`
 	Rules *WorkflowRules `json:"rules,omitempty"`
+	// The properties of the transition.
+	Properties map[string]Object `json:"properties,omitempty"`
 }

@@ -34,4 +34,6 @@ type AttachmentMetadata struct {
 	Content string `json:"content,omitempty"`
 	// The URL of a thumbnail representing the attachment.
 	Thumbnail string `json:"thumbnail,omitempty"`
+	// The file ID of the attachment in the media store. See the [Media API](https://developer.atlassian.com/platform/media/) documentation for more details.
+	MediaApiFileId string `json:"mediaApiFileId,omitempty"`
 }

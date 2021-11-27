@@ -24,4 +24,6 @@ type JiraExpressionEvalContextBean struct {
 	ServiceDesk int64 `json:"serviceDesk,omitempty"`
 	// The ID of the customer request that is available under the `customerRequest` variable when evaluating the expression. This is the same as the ID of the underlying Jira issue, but the customer request context variable will have a different type.
 	CustomerRequest int64 `json:"customerRequest,omitempty"`
+	// Custom context variables and their types. These variable types are available for use in a custom context:   *  `user`: A [user](https://developer.atlassian.com/cloud/jira/platform/jira-expressions-type-reference#user) specified as an Atlassian account ID.  *  `issue`: An [issue](https://developer.atlassian.com/cloud/jira/platform/jira-expressions-type-reference#issue) specified by ID or key. All the fields of the issue object are available in the Jira expression.  *  `json`: A JSON object with custom content.  *  `list`: A JSON list of `user`, `issue`, or `json` variable types.
+	Custom map[string]Object `json:"custom,omitempty"`
 }

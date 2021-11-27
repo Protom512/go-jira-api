@@ -10,8 +10,8 @@
 package swagger
 
 type AttachmentArchiveEntry struct {
-	EntryIndex int64 `json:"entryIndex,omitempty"`
 	AbbreviatedName string `json:"abbreviatedName,omitempty"`
+	EntryIndex int64 `json:"entryIndex,omitempty"`
 	MediaType string `json:"mediaType,omitempty"`
 	Name string `json:"name,omitempty"`
 	Size int64 `json:"size,omitempty"`

@@ -11,15 +11,17 @@ package swagger
 
 // Details of a filter.
 type FilterDetails struct {
+	// Expand options that include additional filter details in the response.
+	Expand string `json:"expand,omitempty"`
 	// The URL of the filter.
 	Self string `json:"self,omitempty"`
 	// The unique identifier for the filter.
 	Id string `json:"id,omitempty"`
-	// The name of the filter. Must be unique.
+	// The name of the filter.
 	Name string `json:"name"`
-	// A description of the filter.
+	// The description of the filter.
 	Description string `json:"description,omitempty"`
-	// The user who owns the filter. This is defaulted to the creator of the filter, however Jira administrators can change the owner of a shared filter in the admin settings.
+	// The user who owns the filter. Defaults to the creator of the filter, however, Jira administrators can change the owner of a shared filter in the admin settings.
 	Owner *AllOfFilterDetailsOwner `json:"owner,omitempty"`
 	// The JQL query for the filter. For example, *project = SSP AND issuetype = Bug*.
 	Jql string `json:"jql,omitempty"`
@@ -33,6 +35,8 @@ type FilterDetails struct {
 	FavouritedCount int64 `json:"favouritedCount,omitempty"`
 	// The groups and projects that the filter is shared with. This can be specified when updating a filter, but not when creating a filter.
 	SharePermissions []SharePermission `json:"sharePermissions,omitempty"`
+	// The groups and projects that can edit the filter. This can be specified when updating a filter, but not when creating a filter.
+	EditPermissions []SharePermission `json:"editPermissions,omitempty"`
 	// The users that are subscribed to the filter.
 	Subscriptions []FilterSubscription `json:"subscriptions,omitempty"`
 }

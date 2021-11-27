@@ -25,4 +25,6 @@ type CreateWorkflowTransitionDetails struct {
 	Rules *AllOfCreateWorkflowTransitionDetailsRules `json:"rules,omitempty"`
 	// The screen of the transition.
 	Screen *AllOfCreateWorkflowTransitionDetailsScreen `json:"screen,omitempty"`
+	// The properties of the transition.
+	Properties map[string]string `json:"properties,omitempty"`
 }

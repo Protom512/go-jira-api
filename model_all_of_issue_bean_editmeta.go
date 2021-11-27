@@ -11,5 +11,6 @@ package swagger
 
 // The metadata for the fields on the issue that can be amended.
 type AllOfIssueBeanEditmeta struct {
+	// A list of editable field details.
 	Fields map[string]FieldMetadata `json:"fields,omitempty"`
 }

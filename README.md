@@ -33,6 +33,9 @@ Class | Method | HTTP request | Description
 *AuditRecordsApi* | [**GetAuditRecords**](docs/AuditRecordsApi.md#getauditrecords) | **Get** /rest/api/3/auditing/record | Get audit records
 *AvatarsApi* | [**DeleteAvatar**](docs/AvatarsApi.md#deleteavatar) | **Delete** /rest/api/3/universal_avatar/type/{type}/owner/{owningObjectId}/avatar/{id} | Delete avatar
 *AvatarsApi* | [**GetAllSystemAvatars**](docs/AvatarsApi.md#getallsystemavatars) | **Get** /rest/api/3/avatar/{type}/system | Get system avatars by type
+*AvatarsApi* | [**GetAvatarImageByID**](docs/AvatarsApi.md#getavatarimagebyid) | **Get** /rest/api/3/universal_avatar/view/type/{type}/avatar/{id} | Get avatar image by ID
+*AvatarsApi* | [**GetAvatarImageByOwner**](docs/AvatarsApi.md#getavatarimagebyowner) | **Get** /rest/api/3/universal_avatar/view/type/{type}/owner/{entityId} | Get avatar image by owner
+*AvatarsApi* | [**GetAvatarImageByType**](docs/AvatarsApi.md#getavatarimagebytype) | **Get** /rest/api/3/universal_avatar/view/type/{type} | Get avatar image by type
 *AvatarsApi* | [**GetAvatars**](docs/AvatarsApi.md#getavatars) | **Get** /rest/api/3/universal_avatar/type/{type}/owner/{entityId} | Get avatars
 *AvatarsApi* | [**StoreAvatar**](docs/AvatarsApi.md#storeavatar) | **Post** /rest/api/3/universal_avatar/type/{type}/owner/{entityId} | Load avatar
 *DashboardsApi* | [**CopyDashboard**](docs/DashboardsApi.md#copydashboard) | **Post** /rest/api/3/dashboard/{id}/copy | Copy dashboard
@@ -82,7 +85,9 @@ Class | Method | HTTP request | Description
 *IssueAttachmentsApi* | [**ExpandAttachmentForHumans**](docs/IssueAttachmentsApi.md#expandattachmentforhumans) | **Get** /rest/api/3/attachment/{id}/expand/human | Get all metadata for an expanded attachment
 *IssueAttachmentsApi* | [**ExpandAttachmentForMachines**](docs/IssueAttachmentsApi.md#expandattachmentformachines) | **Get** /rest/api/3/attachment/{id}/expand/raw | Get contents metadata for an expanded attachment
 *IssueAttachmentsApi* | [**GetAttachment**](docs/IssueAttachmentsApi.md#getattachment) | **Get** /rest/api/3/attachment/{id} | Get attachment metadata
+*IssueAttachmentsApi* | [**GetAttachmentContent**](docs/IssueAttachmentsApi.md#getattachmentcontent) | **Get** /rest/api/3/attachment/content/{id} | Get attachment content
 *IssueAttachmentsApi* | [**GetAttachmentMeta**](docs/IssueAttachmentsApi.md#getattachmentmeta) | **Get** /rest/api/3/attachment/meta | Get Jira attachment settings
+*IssueAttachmentsApi* | [**GetAttachmentThumbnail**](docs/IssueAttachmentsApi.md#getattachmentthumbnail) | **Get** /rest/api/3/attachment/thumbnail/{id} | Get attachment thumbnail
 *IssueAttachmentsApi* | [**RemoveAttachment**](docs/IssueAttachmentsApi.md#removeattachment) | **Delete** /rest/api/3/attachment/{id} | Delete attachment
 *IssueCommentPropertiesApi* | [**DeleteCommentProperty**](docs/IssueCommentPropertiesApi.md#deletecommentproperty) | **Delete** /rest/api/3/comment/{commentId}/properties/{propertyKey} | Delete comment property
 *IssueCommentPropertiesApi* | [**GetCommentProperty**](docs/IssueCommentPropertiesApi.md#getcommentproperty) | **Get** /rest/api/3/comment/{commentId}/properties/{propertyKey} | Get comment property
@@ -124,12 +129,21 @@ Class | Method | HTTP request | Description
 *IssueCustomFieldOptionsAppsApi* | [**ReplaceIssueFieldOption**](docs/IssueCustomFieldOptionsAppsApi.md#replaceissuefieldoption) | **Delete** /rest/api/3/field/{fieldKey}/option/{optionId}/issue | Replace issue field option
 *IssueCustomFieldOptionsAppsApi* | [**UpdateIssueFieldOption**](docs/IssueCustomFieldOptionsAppsApi.md#updateissuefieldoption) | **Put** /rest/api/3/field/{fieldKey}/option/{optionId} | Update issue field option
 *IssueCustomFieldValuesAppsApi* | [**UpdateCustomFieldValue**](docs/IssueCustomFieldValuesAppsApi.md#updatecustomfieldvalue) | **Put** /rest/api/3/app/field/{fieldIdOrKey}/value | Update custom field value
+*IssueCustomFieldValuesAppsApi* | [**UpdateMultipleCustomFieldValues**](docs/IssueCustomFieldValuesAppsApi.md#updatemultiplecustomfieldvalues) | **Post** /rest/api/3/app/field/value | Update custom fields
 *IssueFieldConfigurationsApi* | [**AssignFieldConfigurationSchemeToProject**](docs/IssueFieldConfigurationsApi.md#assignfieldconfigurationschemetoproject) | **Put** /rest/api/3/fieldconfigurationscheme/project | Assign field configuration scheme to project
+*IssueFieldConfigurationsApi* | [**CreateFieldConfiguration**](docs/IssueFieldConfigurationsApi.md#createfieldconfiguration) | **Post** /rest/api/3/fieldconfiguration | Create field configuration
+*IssueFieldConfigurationsApi* | [**CreateFieldConfigurationScheme**](docs/IssueFieldConfigurationsApi.md#createfieldconfigurationscheme) | **Post** /rest/api/3/fieldconfigurationscheme | Create field configuration scheme
+*IssueFieldConfigurationsApi* | [**DeleteFieldConfiguration**](docs/IssueFieldConfigurationsApi.md#deletefieldconfiguration) | **Delete** /rest/api/3/fieldconfiguration/{id} | Delete field configuration
+*IssueFieldConfigurationsApi* | [**DeleteFieldConfigurationScheme**](docs/IssueFieldConfigurationsApi.md#deletefieldconfigurationscheme) | **Delete** /rest/api/3/fieldconfigurationscheme/{id} | Delete field configuration scheme
 *IssueFieldConfigurationsApi* | [**GetAllFieldConfigurationSchemes**](docs/IssueFieldConfigurationsApi.md#getallfieldconfigurationschemes) | **Get** /rest/api/3/fieldconfigurationscheme | Get all field configuration schemes
 *IssueFieldConfigurationsApi* | [**GetAllFieldConfigurations**](docs/IssueFieldConfigurationsApi.md#getallfieldconfigurations) | **Get** /rest/api/3/fieldconfiguration | Get all field configurations
 *IssueFieldConfigurationsApi* | [**GetFieldConfigurationItems**](docs/IssueFieldConfigurationsApi.md#getfieldconfigurationitems) | **Get** /rest/api/3/fieldconfiguration/{id}/fields | Get field configuration items
 *IssueFieldConfigurationsApi* | [**GetFieldConfigurationSchemeMappings**](docs/IssueFieldConfigurationsApi.md#getfieldconfigurationschememappings) | **Get** /rest/api/3/fieldconfigurationscheme/mapping | Get field configuration issue type items
 *IssueFieldConfigurationsApi* | [**GetFieldConfigurationSchemeProjectMapping**](docs/IssueFieldConfigurationsApi.md#getfieldconfigurationschemeprojectmapping) | **Get** /rest/api/3/fieldconfigurationscheme/project | Get field configuration schemes for projects
+*IssueFieldConfigurationsApi* | [**SetFieldConfigurationSchemeMapping**](docs/IssueFieldConfigurationsApi.md#setfieldconfigurationschememapping) | **Put** /rest/api/3/fieldconfigurationscheme/{id}/mapping | Assign issue types to field configurations
+*IssueFieldConfigurationsApi* | [**UpdateFieldConfiguration**](docs/IssueFieldConfigurationsApi.md#updatefieldconfiguration) | **Put** /rest/api/3/fieldconfiguration/{id} | Update field configuration
+*IssueFieldConfigurationsApi* | [**UpdateFieldConfigurationItems**](docs/IssueFieldConfigurationsApi.md#updatefieldconfigurationitems) | **Put** /rest/api/3/fieldconfiguration/{id}/fields | Update field configuration items
+*IssueFieldConfigurationsApi* | [**UpdateFieldConfigurationScheme**](docs/IssueFieldConfigurationsApi.md#updatefieldconfigurationscheme) | **Put** /rest/api/3/fieldconfigurationscheme/{id} | Update field configuration scheme
 *IssueFieldsApi* | [**CreateCustomField**](docs/IssueFieldsApi.md#createcustomfield) | **Post** /rest/api/3/field | Create custom field
 *IssueFieldsApi* | [**DeleteCustomField**](docs/IssueFieldsApi.md#deletecustomfield) | **Delete** /rest/api/3/field/{id} | Delete custom field
 *IssueFieldsApi* | [**GetContextsForFieldDeprecated**](docs/IssueFieldsApi.md#getcontextsforfielddeprecated) | **Get** /rest/api/3/field/{fieldId}/contexts | Get contexts for a field
@@ -290,6 +304,8 @@ Class | Method | HTTP request | Description
 *ProjectComponentsApi* | [**UpdateComponent**](docs/ProjectComponentsApi.md#updatecomponent) | **Put** /rest/api/3/component/{id} | Update component
 *ProjectEmailApi* | [**GetProjectEmail**](docs/ProjectEmailApi.md#getprojectemail) | **Get** /rest/api/3/project/{projectId}/email | Get project&#x27;s sender email
 *ProjectEmailApi* | [**UpdateProjectEmail**](docs/ProjectEmailApi.md#updateprojectemail) | **Put** /rest/api/3/project/{projectId}/email | Set project&#x27;s sender email
+*ProjectFeaturesApi* | [**GetFeaturesForProject**](docs/ProjectFeaturesApi.md#getfeaturesforproject) | **Get** /rest/api/3/project/{projectIdOrKey}/features | Get project features
+*ProjectFeaturesApi* | [**ToggleFeatureForProject**](docs/ProjectFeaturesApi.md#togglefeatureforproject) | **Put** /rest/api/3/project/{projectIdOrKey}/features/{featureKey} | Set project feature state
 *ProjectKeyAndNameValidationApi* | [**GetValidProjectKey**](docs/ProjectKeyAndNameValidationApi.md#getvalidprojectkey) | **Get** /rest/api/3/projectvalidate/validProjectKey | Get valid project key
 *ProjectKeyAndNameValidationApi* | [**GetValidProjectName**](docs/ProjectKeyAndNameValidationApi.md#getvalidprojectname) | **Get** /rest/api/3/projectvalidate/validProjectName | Get valid project name
 *ProjectKeyAndNameValidationApi* | [**ValidateProjectKey**](docs/ProjectKeyAndNameValidationApi.md#validateprojectkey) | **Get** /rest/api/3/projectvalidate/key | Validate project key
@@ -566,6 +582,7 @@ Class | Method | HTTP request | Description
  - [AnyOfJqlQueryUnitaryOperand](docs/AnyOfJqlQueryUnitaryOperand.md)
  - [ApplicationProperty](docs/ApplicationProperty.md)
  - [ApplicationRole](docs/ApplicationRole.md)
+ - [AssociateFieldConfigurationsWithIssueTypesRequest](docs/AssociateFieldConfigurationsWithIssueTypesRequest.md)
  - [AssociatedItemBean](docs/AssociatedItemBean.md)
  - [AttachmentArchive](docs/AttachmentArchive.md)
  - [AttachmentArchiveEntry](docs/AttachmentArchiveEntry.md)
@@ -604,6 +621,7 @@ Class | Method | HTTP request | Description
  - [ConnectModule](docs/ConnectModule.md)
  - [ConnectModules](docs/ConnectModules.md)
  - [ConnectWorkflowTransitionRule](docs/ConnectWorkflowTransitionRule.md)
+ - [ContainerForProjectFeatures](docs/ContainerForProjectFeatures.md)
  - [ContainerForRegisteredWebhooks](docs/ContainerForRegisteredWebhooks.md)
  - [ContainerForWebhookIDs](docs/ContainerForWebhookIDs.md)
  - [ContainerOfWorkflowSchemeAssociations](docs/ContainerOfWorkflowSchemeAssociations.md)
@@ -627,11 +645,26 @@ Class | Method | HTTP request | Description
  - [CustomFieldContext](docs/CustomFieldContext.md)
  - [CustomFieldContextDefaultValue](docs/CustomFieldContextDefaultValue.md)
  - [CustomFieldContextDefaultValueCascadingOption](docs/CustomFieldContextDefaultValueCascadingOption.md)
+ - [CustomFieldContextDefaultValueDate](docs/CustomFieldContextDefaultValueDate.md)
+ - [CustomFieldContextDefaultValueDateTime](docs/CustomFieldContextDefaultValueDateTime.md)
+ - [CustomFieldContextDefaultValueFloat](docs/CustomFieldContextDefaultValueFloat.md)
+ - [CustomFieldContextDefaultValueLabels](docs/CustomFieldContextDefaultValueLabels.md)
+ - [CustomFieldContextDefaultValueMultiUserPicker](docs/CustomFieldContextDefaultValueMultiUserPicker.md)
+ - [CustomFieldContextDefaultValueMultipleGroupPicker](docs/CustomFieldContextDefaultValueMultipleGroupPicker.md)
  - [CustomFieldContextDefaultValueMultipleOption](docs/CustomFieldContextDefaultValueMultipleOption.md)
+ - [CustomFieldContextDefaultValueMultipleVersionPicker](docs/CustomFieldContextDefaultValueMultipleVersionPicker.md)
+ - [CustomFieldContextDefaultValueProject](docs/CustomFieldContextDefaultValueProject.md)
+ - [CustomFieldContextDefaultValueReadOnly](docs/CustomFieldContextDefaultValueReadOnly.md)
+ - [CustomFieldContextDefaultValueSingleGroupPicker](docs/CustomFieldContextDefaultValueSingleGroupPicker.md)
  - [CustomFieldContextDefaultValueSingleOption](docs/CustomFieldContextDefaultValueSingleOption.md)
+ - [CustomFieldContextDefaultValueSingleVersionPicker](docs/CustomFieldContextDefaultValueSingleVersionPicker.md)
+ - [CustomFieldContextDefaultValueTextArea](docs/CustomFieldContextDefaultValueTextArea.md)
+ - [CustomFieldContextDefaultValueTextField](docs/CustomFieldContextDefaultValueTextField.md)
  - [CustomFieldContextDefaultValueUpdate](docs/CustomFieldContextDefaultValueUpdate.md)
+ - [CustomFieldContextDefaultValueUrl](docs/CustomFieldContextDefaultValueUrl.md)
  - [CustomFieldContextOption](docs/CustomFieldContextOption.md)
  - [CustomFieldContextProjectMapping](docs/CustomFieldContextProjectMapping.md)
+ - [CustomFieldContextSingleUserPickerDefaults](docs/CustomFieldContextSingleUserPickerDefaults.md)
  - [CustomFieldContextUpdateDetails](docs/CustomFieldContextUpdateDetails.md)
  - [CustomFieldCreatedContextOptionsList](docs/CustomFieldCreatedContextOptionsList.md)
  - [CustomFieldDefinitionJsonBean](docs/CustomFieldDefinitionJsonBean.md)
@@ -641,7 +674,7 @@ Class | Method | HTTP request | Description
  - [CustomFieldReplacement](docs/CustomFieldReplacement.md)
  - [CustomFieldUpdatedContextOptionsList](docs/CustomFieldUpdatedContextOptionsList.md)
  - [CustomFieldValueUpdate](docs/CustomFieldValueUpdate.md)
- - [CustomFieldValueUpdateRequest](docs/CustomFieldValueUpdateRequest.md)
+ - [CustomFieldValueUpdateDetails](docs/CustomFieldValueUpdateDetails.md)
  - [Dashboard](docs/Dashboard.md)
  - [DashboardDetails](docs/DashboardDetails.md)
  - [DefaultShareScope](docs/DefaultShareScope.md)
@@ -658,11 +691,14 @@ Class | Method | HTTP request | Description
  - [Field](docs/Field.md)
  - [FieldChangedClause](docs/FieldChangedClause.md)
  - [FieldConfiguration](docs/FieldConfiguration.md)
+ - [FieldConfigurationDetails](docs/FieldConfigurationDetails.md)
  - [FieldConfigurationIssueTypeItem](docs/FieldConfigurationIssueTypeItem.md)
  - [FieldConfigurationItem](docs/FieldConfigurationItem.md)
+ - [FieldConfigurationItemsDetails](docs/FieldConfigurationItemsDetails.md)
  - [FieldConfigurationScheme](docs/FieldConfigurationScheme.md)
  - [FieldConfigurationSchemeProjectAssociation](docs/FieldConfigurationSchemeProjectAssociation.md)
  - [FieldConfigurationSchemeProjects](docs/FieldConfigurationSchemeProjects.md)
+ - [FieldConfigurationToIssueTypeMapping](docs/FieldConfigurationToIssueTypeMapping.md)
  - [FieldDetails](docs/FieldDetails.md)
  - [FieldLastUsed](docs/FieldLastUsed.md)
  - [FieldMetadata](docs/FieldMetadata.md)
@@ -781,6 +817,8 @@ Class | Method | HTTP request | Description
  - [ListWrapperCallbackGroupName](docs/ListWrapperCallbackGroupName.md)
  - [Locale](docs/Locale.md)
  - [MoveFieldBean](docs/MoveFieldBean.md)
+ - [MultipleCustomFieldValuesUpdate](docs/MultipleCustomFieldValuesUpdate.md)
+ - [MultipleCustomFieldValuesUpdateDetails](docs/MultipleCustomFieldValuesUpdateDetails.md)
  - [NestedResponse](docs/NestedResponse.md)
  - [NotificationEvent](docs/NotificationEvent.md)
  - [NotificationRecipientsRestrictions](docs/NotificationRecipientsRestrictions.md)
@@ -803,7 +841,7 @@ Class | Method | HTTP request | Description
  - [PageBeanCustomFieldContextProjectMapping](docs/PageBeanCustomFieldContextProjectMapping.md)
  - [PageBeanDashboard](docs/PageBeanDashboard.md)
  - [PageBeanField](docs/PageBeanField.md)
- - [PageBeanFieldConfiguration](docs/PageBeanFieldConfiguration.md)
+ - [PageBeanFieldConfigurationDetails](docs/PageBeanFieldConfigurationDetails.md)
  - [PageBeanFieldConfigurationIssueTypeItem](docs/PageBeanFieldConfigurationIssueTypeItem.md)
  - [PageBeanFieldConfigurationItem](docs/PageBeanFieldConfigurationItem.md)
  - [PageBeanFieldConfigurationScheme](docs/PageBeanFieldConfigurationScheme.md)
@@ -853,6 +891,8 @@ Class | Method | HTTP request | Description
  - [ProjectComponent](docs/ProjectComponent.md)
  - [ProjectDetails](docs/ProjectDetails.md)
  - [ProjectEmailAddress](docs/ProjectEmailAddress.md)
+ - [ProjectFeature](docs/ProjectFeature.md)
+ - [ProjectFeatureState](docs/ProjectFeatureState.md)
  - [ProjectIdentifierBean](docs/ProjectIdentifierBean.md)
  - [ProjectIdentifiers](docs/ProjectIdentifiers.md)
  - [ProjectIds](docs/ProjectIds.md)
@@ -922,6 +962,7 @@ Class | Method | HTTP request | Description
  - [UnrestrictedUserEmail](docs/UnrestrictedUserEmail.md)
  - [UpdateCustomFieldDetails](docs/UpdateCustomFieldDetails.md)
  - [UpdateDefaultScreenScheme](docs/UpdateDefaultScreenScheme.md)
+ - [UpdateFieldConfigurationSchemeDetails](docs/UpdateFieldConfigurationSchemeDetails.md)
  - [UpdateProjectDetails](docs/UpdateProjectDetails.md)
  - [UpdateScreenDetails](docs/UpdateScreenDetails.md)
  - [UpdateScreenSchemeDetails](docs/UpdateScreenSchemeDetails.md)
@@ -931,6 +972,7 @@ Class | Method | HTTP request | Description
  - [UserBean](docs/UserBean.md)
  - [UserBeanAvatarUrls](docs/UserBeanAvatarUrls.md)
  - [UserDetails](docs/UserDetails.md)
+ - [UserFilter](docs/UserFilter.md)
  - [UserKey](docs/UserKey.md)
  - [UserList](docs/UserList.md)
  - [UserMigrationBean](docs/UserMigrationBean.md)
@@ -957,6 +999,7 @@ Class | Method | HTTP request | Description
  - [WorkflowRulesSearchDetails](docs/WorkflowRulesSearchDetails.md)
  - [WorkflowScheme](docs/WorkflowScheme.md)
  - [WorkflowSchemeAssociations](docs/WorkflowSchemeAssociations.md)
+ - [WorkflowSchemeIdName](docs/WorkflowSchemeIdName.md)
  - [WorkflowSchemeProjectAssociation](docs/WorkflowSchemeProjectAssociation.md)
  - [WorkflowSimpleCondition](docs/WorkflowSimpleCondition.md)
  - [WorkflowStatus](docs/WorkflowStatus.md)

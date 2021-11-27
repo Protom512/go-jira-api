@@ -33,6 +33,8 @@ type Filter struct {
 	FavouritedCount int64 `json:"favouritedCount,omitempty"`
 	// The groups and projects that the filter is shared with.
 	SharePermissions []SharePermission `json:"sharePermissions,omitempty"`
+	// The groups and projects that can edit the filter.
+	EditPermissions []SharePermission `json:"editPermissions,omitempty"`
 	// A paginated list of the users that the filter is shared with. This includes users that are members of the groups or can browse the projects that the filter is shared with.
 	SharedUsers *AllOfFilterSharedUsers `json:"sharedUsers,omitempty"`
 	// A paginated list of the users that are subscribed to the filter.

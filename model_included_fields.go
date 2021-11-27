@@ -10,7 +10,7 @@
 package swagger
 
 type IncludedFields struct {
-	ActuallyIncluded []string `json:"actuallyIncluded,omitempty"`
 	Included []string `json:"included,omitempty"`
 	Excluded []string `json:"excluded,omitempty"`
+	ActuallyIncluded []string `json:"actuallyIncluded,omitempty"`
 }
